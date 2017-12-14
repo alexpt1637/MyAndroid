@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -31,8 +32,34 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        // Получаем ссылки на виджеты
         mTrueButton = (Button) findViewById(R.id.true_button);
+        // Назначаем слушателей
+        // Слушатель реализован в виде анонимного внутреннего класса
+        mTrueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Для продолжения возвращаемся к файлу strings.xml и добавляем строковые ресурсы уведомлений
+                // Выше в теле метода уведомление создается вызовом метода класса Toast
+                Toast.makeText(QuizActivity.this,
+                        R.string.incorrect_toast,
+                        Toast.LENGTH_SHORT).show();
+                }
+        });
+
+        // Получаем ссылки на виджеты для следующей кнопки
         mFalseButton = (Button) findViewById(R.id.false_button);
+        // Реализуем слушателя для следующей кнопки
+        mFalseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(QuizActivity.this,
+                        R.string.correct_toast,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
