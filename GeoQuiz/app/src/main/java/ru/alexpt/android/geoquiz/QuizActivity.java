@@ -39,6 +39,27 @@ public class QuizActivity extends AppCompatActivity {
         mQuestionTextView.setText(question);
     }
 
+    // Проверяем правильность ответа пользователя методом checkAnswer()
+    // Метод получает логическую переменную, которая указывает какую кнопку нажал пользователь: True или False
+    // Ответ пользователя проверяется по ответу текущего объекта Question
+    // После определения правильности ответа метод создает уведомление для вывода сответствующего сообщения
+    private void checkAnswer(boolean userPressedTrue) {
+        boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTtue();
+
+        int messageResId = 0;
+
+        if (userPressedTrue == answerIsTrue) {
+            messageResId = R.string.correct_toast;
+        } else {
+            messageResId = R.string.incorrect_toast;
+        }
+
+        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    // Включаем в слушателя кнопки True и False вызов метода checkAnswer(boolean)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,9 +95,12 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Для продолжения возвращаемся к файлу strings.xml и добавляем строковые ресурсы уведомлений
                 // Выше в теле метода уведомление создается вызовом метода класса Toast
-                Toast.makeText(QuizActivity.this,
+
+                // Включаем в слушателя кнопки True и False вызов метода checkAnswer(boolean)
+                /*Toast.makeText(QuizActivity.this,
                         R.string.incorrect_toast,
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
+                checkAnswer(true);
                 }
         });
 
@@ -86,9 +110,11 @@ public class QuizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(QuizActivity.this,
+                // Включаем в слушателя кнопки True и False вызов метода checkAnswer(boolean) - прорамма готова!
+                /*Toast.makeText(QuizActivity.this,
                         R.string.correct_toast,
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
+                checkAnswer(false);
             }
         });
 
