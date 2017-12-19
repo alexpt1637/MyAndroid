@@ -9,18 +9,51 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
+    // Создаем переменные для кнопок True и False
     private Button mTrueButton;
     private Button mFalseButton;
+    // Добавляем переменные для TextView и новой кнопки
+    private Button mNextButton;
+    private TextView mQuestionTextView;
+
+    // Создаем массив объектов Question и переменную для индекса массива int mCurrentIndex
+    private Question[] mQuestionBank = new Question[]{
+            new Question(R.string.question_oceans, true),
+            new Question(R.string.question_mideast, false),
+            new Question(R.string.question_africa, false),
+            new Question(R.string.question_americas, true),
+            new Question(R.string.question_asia, true),
+    };
+
+    private int mCurrentIndex = 0;  // Начальное значение переменной для индекса массива
+    // Программа несколько раз вызывает конструктор Question и создает массив объектов Question (для простоты)
+
+    private void updateQuestion() {
+        // Инкапсулируем это действие в методе updateQuestion() так как ниже оно повторяется два раза
+        int question = mQuestionBank[mCurrentIndex].getTextResId();
+        mQuestionTextView.setText(question);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        // Далее получаем ссылки на TextView и задаем тексту виджета вопрос с текущим индексом
+        mQuestionTextView = (TextView)findViewById(R.id.question_text_view);
+        // Инкапсулируем это действие в методе updateQuestion() так как оно повторяется два раза
+        /*int question = mQuestionBank[mCurrentIndex].getTextResId();
+        mQuestionTextView.setText(question);*/
+
+        // До реализации кнопки Next на экране должен отображаться первый вопрос
+
+        // Убираем (комментируем) лишнее:
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -30,7 +63,7 @@ public class QuizActivity extends AppCompatActivity {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         // Получаем ссылки на виджеты
         mTrueButton = (Button) findViewById(R.id.true_button);
@@ -59,7 +92,23 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
+        // Создаем class Question, в нем создаем два вида данных: текст вопроса и правильный ответ (да/нет)
 
+        // После задания тексту виджета вопроса с текущим индексом подключаем новую кнопку 'Next'
+        mNextButton = (Button)findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Значение переменной для индекса массива увеличивается на единицу
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+                // Инкапсулируем это действие в методе updateQuestion() так как оно повторяется два раза
+                /*int question = mQuestionBank[mCurrentIndex].getTextResId();
+                mQuestionTextView.setText(question);*/
+                updateQuestion();
+            }
+        });
+
+        updateQuestion();
     }
 
     @Override
