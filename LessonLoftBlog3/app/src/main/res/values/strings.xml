@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lesson LoftBlog3</string>
+    <string name="hello_world">Hello World!</string>
+
+    <string name="red">Красный</string>
+    <string name="yellow">Желтый</string>
+    <string name="green">Зелёный</string>
+</resources>
