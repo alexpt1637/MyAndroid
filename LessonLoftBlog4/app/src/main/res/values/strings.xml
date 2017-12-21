@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lesson LoftBlog4</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="text_choose_film">Выберите фильм</string>
+    <string name="button_choose_text">Сделать выбор</string>
+    <string name="title_activity_choose_activity">choose_activity</string>
+    <string name="transformers">Трансформеры</string>
+    <string name="harry_potter">Гарри Поттер</string>
+    <string name="criminal">Криминальное Чтиво</string>
+</resources>

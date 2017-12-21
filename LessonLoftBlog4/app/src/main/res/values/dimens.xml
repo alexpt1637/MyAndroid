@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="act_ver_marg">16dp</dimen>
+    <dimen name="act_hor_marg">16dp</dimen>
+</resources>
