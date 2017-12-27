@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">itProger Lesson5</string>
     <string name="end_text">Вы уже выполнили это действие!</string>
+    <string name="btn2_text">Мы всё поменяли!</string>
 </resources>

@@ -41,9 +41,18 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="128dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="@android:string/ok"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="138dp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="yes"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="138dp" />
