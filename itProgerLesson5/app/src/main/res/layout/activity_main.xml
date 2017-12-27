@@ -16,7 +16,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="31dp">
+        tools:layout_editor_absoluteY="31dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,6 +40,14 @@
             tools:layout_editor_absoluteX="84dp"
             tools:layout_editor_absoluteY="70dp" />
 
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="1"
+            android:stepSize="1" />
+
         <Button
             android:id="@+id/button"
             android:layout_width="130dp"
@@ -56,6 +65,26 @@
             android:textSize="24sp"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="138dp" />
+
+        <Button
+            android:id="@+id/alert"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="alert"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="138dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:text="Значение:"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="320dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
