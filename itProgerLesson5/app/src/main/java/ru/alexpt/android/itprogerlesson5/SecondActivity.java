@@ -10,6 +10,7 @@ import android.view.View;
 public class SecondActivity extends AppCompatActivity {
     // Сначала в файле манифеста для второй активити копируем строки <intent-filter>
     // в них меняем LAUNCHER на DEFAULT
+    // меняем "android.intent.action.MAIN" на "ru.alexpt.android.itprogerlesson5.SecondActivity" из content_second.xml
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

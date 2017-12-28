@@ -1,6 +1,7 @@
 package ru.alexpt.android.itprogerlesson5;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText pass;
-    private Button btn, btn2, btn_alert;
+    private Button btn, btn2, btn_alert, act_change;
     private RatingBar rating;
     private TextView text_show;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btn = (Button)findViewById(R.id.button);
         btn2 = (Button) findViewById(R.id.button2);
         btn_alert = (Button) findViewById(R.id.alert);
+        act_change = (Button) findViewById(R.id.act_change);
 
         // В всплывающей подсказке выводим введенное пользователем значение и меняем цвет фона и текста первой кнопки
         btn.setOnClickListener(
@@ -107,6 +109,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                         text_show.setText("Значение: " + String.valueOf(rating));
+                    }
+                }
+        );
+
+        // Переходим на вторую страницу
+        act_change.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // создаем объект класса Intent с параметром новой страницы
+                        Intent intent = new Intent("ru.alexpt.android.itprogerlesson5.SecondActivity");
+                        startActivity(intent);
                     }
                 }
         );
