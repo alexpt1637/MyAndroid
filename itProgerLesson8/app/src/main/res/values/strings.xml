@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">itProger Lesson 8</string>
+    <string name="TestActivity">Выбор теста</string>
+    <string name="Test1">Тест 1</string>
+    <string name="Test2">Тест 2</string>
+    <string name="Test3">Тест 3</string>
+    <string name="btnTest1">Java</string>
+    <string name="btnTest2">Android</string>
+    <string name="btnTest3">SQL</string>
 </resources>
