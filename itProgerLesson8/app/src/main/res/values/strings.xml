@@ -4,7 +4,11 @@
     <string name="Test1">Тест 1</string>
     <string name="Test2">Тест 2</string>
     <string name="Test3">Тест 3</string>
+    <string name="TestMenu">Тест меню</string>
     <string name="btnTest1">Java</string>
     <string name="btnTest2">Android</string>
     <string name="btnTest3">SQL</string>
+    <string name="textToast1">Выбран тест \'Java\'</string>
+    <string name="textToast2">Выбран тест \'Android\'</string>
+    <string name="textToast3">Выбран тест \'SQL\'</string>
 </resources>
