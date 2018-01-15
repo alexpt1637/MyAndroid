@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String KEY_MAIL = "mail"; // далее эти константы переносим в конструктор ниже
 
     // реализуем конструктор с 4 параметрами: context, имя базы, объект класса CursorFactory, версию базы банных
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public DBHelper(Context context) {
         // занулим CursorFactory, т.к. сейчас он не используется (служит для расширения класа Cursor)
         super(context, DATABASE_NAME, null, DATABASE_VERSION); // заменяем name, version константами
         // выше в классе DBHelper создаем константы для версии БД, имени БД и имени таблицы
