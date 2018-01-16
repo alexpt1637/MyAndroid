@@ -58,6 +58,16 @@ public class MainBDActivity extends AppCompatActivity implements View.OnClickLis
         Toast.makeText(MainBDActivity.this, "Text saved", Toast.LENGTH_SHORT).show();
     }
 
+    // saveText – сохранение данных.
+    // Сначала с помощью метода getPreferences получаем объект sPref класса SharedPreferences,
+    // который позволяет работать с данными (читать и писать).
+    // Константа MODE_PRIVATE используется для настройки доступа и означает,
+    // что после сохранения, данные будут видны только этому приложению.
+    // Далее, чтобы редактировать данные, необходим объект Editor – получаем его из sPref.
+    // В метод putString указываем наименование переменной – это константа SAVED_TEXT,
+    // и значение – содержимое поля etText. Чтобы данные сохранились, необходимо выполнить commit.
+    // И для наглядности выводим сообщение, что данные сохранены.
+
     // реализуем метод загрузки данных
     private void loadText (){
         sPref = getPreferences(MODE_PRIVATE);
@@ -65,6 +75,13 @@ public class MainBDActivity extends AppCompatActivity implements View.OnClickLis
         etText.setText(savedText);
         Toast.makeText(MainBDActivity.this, "Text loaded", Toast.LENGTH_SHORT).show();
     }
+
+    // loadText – загрузка данных.
+    // Так же, как и saveText, с помощью метода getPreferences получаем объект sPref класса SharedPreferences.
+    // MODE_PRIVATE снова указывается, хотя и используется только при записи данных.
+    // Здесь Editor мы не используем, т.к. нас интересует только чтение данных.
+    // Читаем с помощью метода getString – в параметрах указываем константу - это имя, и значение по умолчанию (пустая строка).
+    // Далее пишем значение в поле ввода etText и выводим сообщение, что данные считаны.
 
     // делаем загрузку и сохранение данных автоматическими при закрытии и открытии приложения
     // для этого метод loadText вызываем в методе onCreate, а метод saveText в методе onDestroy, реализованном ниже
@@ -74,4 +91,6 @@ public class MainBDActivity extends AppCompatActivity implements View.OnClickLis
         super.onDestroy();
         saveText(); // автоматически сохраняем данные при закрытии приложения
     }
+
+
 }
