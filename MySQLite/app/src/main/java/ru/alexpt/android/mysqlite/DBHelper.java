@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // создаем константы для версии БД, имени БД и имени таблицы
     public static final int DATABASE_VERSION = 1; // указываем версию БД = 1, номер версии проверяется в методе onUpgrade
     public static final String DATABASE_NAME = "contactDb";
-    public static final String TABLE_CONTACTS = "contactDb";
+    public static final String TABLE_CONTACTS = "contacts";
 
     // создаем константы для столбцов таблицы
     public static final String KEY_ID = "_id";
@@ -31,10 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override   // метод создает базу данных, если она не существует
     public void onCreate(SQLiteDatabase db) {
         // реализуем логику создания таблиц и заполнения их начальными данными с помощью команд SQL
-        db.execSQL("create table " + TABLE_CONTACTS + " (" + KEY_ID
-                + " integer primary key," + KEY_NAME + " text" + ") ");
+        db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID + " integer primary key," + KEY_NAME + " text," + KEY_MAIL + " text" + ")");
     }
-
     @Override   // метод срабатывает при изменении номера версии
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // формируем запрос на уничтожение таблицы

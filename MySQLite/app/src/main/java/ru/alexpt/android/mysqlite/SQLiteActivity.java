@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +14,7 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
 
     EditText etName, etEmail;
     Button btnAdd, btnRead, btnClear;
-
+    // далее создаем отдельный класс DBHelper для работы с базой данных
     // после возвращения из класса DBHelper объявляем переменную этого класса и создаем его экземпляр в методе onCreate
     DBHelper dbHelper;
 
@@ -55,18 +56,39 @@ public class SQLiteActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()){
             case R.id.btnAdd:
                 // действие по нажатию кнопки btnAdd
-                contentValues.put(DBHelper.KEY_NAME, name);
+                contentValues.put(DBHelper.KEY_NAME, name);     // столбцы заполняются парами NAME и MAIL
                 contentValues.put(DBHelper.KEY_MAIL, email);    // столбец id заполнится автоматически
 
+                // метод insert вставляет подготовленные строки в таблицу
                 database.insert(DBHelper.TABLE_CONTACTS, null, contentValues);
                 break;
+
             case R.id.btnRead:
-                // действие по нажатию кнопки btnRead
+                // действие по нажатию кнопки btnRead - реализуем чтение всех записей из таблицы методом query
+                Cursor cursor = database.query(DBHelper.TABLE_CONTACTS, null, null, null, null, null, null);
+                // сортировки и группировки пока не исползуем, указываем для них параметр null
+
+                if (cursor.moveToFirst()){  // метод moveToFirst делает первую запись активной и проверяет делались ли вообще записи в таблице
+                    int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);   // получаем порядковые номера столбцов методом getColumnIndex
+                    int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);   // далее их используем в методах getInt и getString
+                    int emailIndex = cursor.getColumnIndex(DBHelper.KEY_MAIL);
+                        do {
+                            Log.d("mLog", "ID = " + cursor.getInt(idIndex) +
+                                        ", name - " + cursor.getString(nameIndex) +
+                                        ", email = " + cursor.getString(emailIndex));
+                        } while (cursor.moveToNext());  // методом moveToNext перебираем все строки в cursor пока не доберёмся до последней
+                } else
+                    Log.d("mLog", "0 rows");    // если записей не было, то выводится это сообщение
+
+                cursor.close(); // обязательно закрываем курсор для освобождения занимаемых ресурсов
                 break;
+
             case R.id.btnClear:
-                // действие по нажатию кнопки btnClear
+                // действие по нажатию кнопки btnClear - очистка таблицы
+                // на вход метода delete подаем имя таблицы и параметр null, в этом случае будут удаляться все данные из таблицы
+                database.delete(DBHelper.TABLE_CONTACTS, null, null);
                 break;
-            // далее создаем отдельный класс DBHelper для работы с базой данных
         }
+        dbHelper.close();   // закрываем соединение с базой данных методом close
     }
 }
