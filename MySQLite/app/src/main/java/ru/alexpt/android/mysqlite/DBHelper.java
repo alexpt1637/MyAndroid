@@ -31,7 +31,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override   // метод создает базу данных, если она не существует
     public void onCreate(SQLiteDatabase db) {
         // реализуем логику создания таблиц и заполнения их начальными данными с помощью команд SQL
-        db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID + " integer primary key," + KEY_NAME + " text," + KEY_MAIL + " text" + ")");
+        db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID
+                + " integer primary key," + KEY_NAME + " text," + KEY_MAIL + " text" + ")");
     }
     @Override   // метод срабатывает при изменении номера версии
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
