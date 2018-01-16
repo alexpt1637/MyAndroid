@@ -34,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table " + TABLE_CONTACTS + "(" + KEY_ID
                 + " integer primary key," + KEY_NAME + " text," + KEY_MAIL + " text" + ")");
     }
+
     @Override   // метод срабатывает при изменении номера версии
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // формируем запрос на уничтожение таблицы
