@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText email, pass;
 
     // Создаем константу (пишем const...) в последствии эти данные будем брать из базы данных
-    private static final String email_txt = "alexpt";
+    private static final String email_txt = "admin";
     private static final String pass_txt = "123";
 
     @Override

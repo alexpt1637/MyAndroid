@@ -59,7 +59,7 @@ public class ActivityTwo extends AppCompatActivity {
                         break;
                     case R.id.textView3:
                         testText.setText(R.string.btnTest3);
-                        toast3.setGravity(Gravity.CENTER, 0, 0);
+//                        toast3.setGravity(Gravity.CENTER, 0, 0);
                         toast3.show();
                         break;
                 }
