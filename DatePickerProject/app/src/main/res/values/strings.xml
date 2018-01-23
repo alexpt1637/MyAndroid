@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DatePickerProject</string>
+    <string name="newDate">Установить дату</string>
+    <string name="textData">Дата</string>
+</resources>
