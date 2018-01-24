@@ -1,7 +1,1 @@
-<root>
-    <item name='android.view.View void setOnClickListener(android.view.View.OnClickListener)'>
-        <annotation name='org.jetbrains.annotations.Contract'>
-            <val name="pure" val="true" />
-        </annotation>
-    </item>
-</root>
+<root></root>

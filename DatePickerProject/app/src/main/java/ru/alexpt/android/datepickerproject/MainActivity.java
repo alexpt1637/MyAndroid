@@ -2,6 +2,7 @@ package ru.alexpt.android.datepickerproject;
 
 // http://developer.alexanderklimov.ru/android/views/datepicker.php
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DatePicker mDatePicker;
     private TextView mInfoTextView;
+    private TextView mTextClick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         mInfoTextView = (TextView) findViewById(R.id.textView);
         mDatePicker = (DatePicker) findViewById(R.id.datePicker);
+        mTextClick = (TextView) findViewById(R.id.textView1);
 
         Calendar today = Calendar.getInstance();
 
@@ -64,7 +67,26 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        final Intent intent = new Intent(this, MainDateActivity.class);
+
+        mTextClick.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Простой переход на вторую активити без авторизации
+                        switch (view.getId()) {
+                            case R.id.textView1:
+                                startActivity(intent);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+        );
     }
+
 
     // устанавливаем текущую дату
     public void setCurrentDateOnView() {
