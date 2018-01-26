@@ -43,7 +43,7 @@ public class Main extends AppCompatActivity {
     public void clickButton(View view) {
         String s = input.getText().toString();
         int x = Integer.parseInt(s);
-        output.setText(String.valueOf(x%10));
+        output.setText(String.valueOf(x));
     }
 
     /*private void clickImButton() {

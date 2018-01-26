@@ -14,23 +14,34 @@ import java.util.Date;
 
 public class MainDateActivity extends AppCompatActivity {
 
-    EditText date1, date2;
-    TextView textDate;
+    EditText etDate1, etDate2;
+    TextView textDate, textViewDate;
     Button result;
     // Создадим объект Date
     Date date = new Date();
 
     String resYars;
+//    int date1, date2;
+    Date dateOne, dateTwo;
+    long difference;
+    int days, yars, months;
+
+    int date1 = 21092009;
+    int date2 = 29092017;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.date);
 
-        date1 = (EditText) findViewById(R.id.editText);
-        date2 = (EditText) findViewById(R.id.editText2);
+        etDate1 = (EditText) findViewById(R.id.editText);
+        etDate2 = (EditText) findViewById(R.id.editText2);
         textDate = (TextView) findViewById(R.id.textDate);
+        textViewDate = (TextView) findViewById(R.id.textView2);
         result = (Button) findViewById(R.id.btnResult);
+
+        /*date1 = etDate1.getId();
+        date2 = etDate2.getId();*/
 
         final Toast toast1 = Toast.makeText(MainDateActivity.this, R.string.textToast1, Toast.LENGTH_SHORT);
         final MainDateMetod mMainDateMetod = new MainDateMetod();
@@ -41,6 +52,7 @@ public class MainDateActivity extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.btnResult:
                         mMainDateMetod.mainDateMetod(textDate);
+
                         toast1.show();
                         break;
                 }
@@ -52,28 +64,20 @@ public class MainDateActivity extends AppCompatActivity {
     }
 }
 
-class MainDateMetod {
+class MainDateMetod extends MainDateActivity {
 
-    String date1, date2, resYars;
-    Date dateOne, dateTwo;
-    long difference;
-    int days, yars, months;
-
-    public void mainDateMetod(TextView textDate){
-
-        date1 = "21.09.2009";
-        date2 = "29.09.2017";
+        public void mainDateMetod(TextView textDate){
 
         // ---------------------------- Количество дней между датами --------------------------------------
 
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
 
         dateOne = null;
         dateTwo = null;
 
         try {
-            dateOne = format.parse(date1);
-            dateTwo = format.parse(date2);
+            dateOne = format.parse(String.valueOf(date1));
+            dateTwo = format.parse(String.valueOf(date2));
         } catch (Exception e) {
             e.printStackTrace();
         }

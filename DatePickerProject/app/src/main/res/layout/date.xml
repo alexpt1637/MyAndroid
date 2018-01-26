@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Date1: dd.mm.yyyy"
-        android:inputType="date"
+        android:hint="Date1: ddMMyyyy"
+        android:inputType="number"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="24sp" />
@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Date2: dd.mm.yyyy"
-        android:inputType="date"
+        android:hint="Date2: ddMMyyyy"
+        android:inputType="number"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="24sp" />
@@ -34,6 +34,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="@string/textData"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/textView2"
         android:layout_marginTop="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@android:color/darker_gray" />

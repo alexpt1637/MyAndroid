@@ -39,6 +39,7 @@ public class ActivityTwo extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.btnTest1:
                         testText.setText(R.string.btnTest1);
+                        btn1.setText(R.string.newName);
                         toast1.show();
                         break;
                     case R.id.btnTest2:

@@ -3,4 +3,5 @@
     <string name="newDate">Установить дату</string>
     <string name="textData">Дата</string>
     <string name="textToast1">Нажатие кнопки выполнено</string>
+    <string name="textView2">Контроль данных</string>
 </resources>
