@@ -1,5 +1,6 @@
 package ru.alexpt.android.itprogerlesson8;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static ru.alexpt.android.itprogerlesson8.R.color.colorTest1;
 
 public class ActivityTwo extends AppCompatActivity {
 
@@ -34,12 +37,14 @@ public class ActivityTwo extends AppCompatActivity {
         registerForContextMenu(testText);
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.btnTest1:
                         testText.setText(R.string.btnTest1);
                         btn1.setText(R.string.newName);
+                        testText.setTextColor(colorTest1);
                         toast1.show();
                         break;
                     case R.id.btnTest2:
