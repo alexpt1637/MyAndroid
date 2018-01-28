@@ -12,4 +12,7 @@
     <string name="textToast2">Выбран тест \'Android\'</string>
     <string name="textToast3">Выбран тест \'SQL\'</string>
     <string name="newName">New name</string>
+    <string name="red">RED</string>
+    <string name="magenta">MAGENTA</string>
+    <string name="green">GREEN</string>
 </resources>

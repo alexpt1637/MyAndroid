@@ -1,5 +1,6 @@
 package ru.alexpt.android.datepickerproject;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -94,5 +95,6 @@ class MainDateMetod extends MainDateActivity {
 
         resYars = "Страховой стаж: " + yars + " лет " + months + " мес.";
         textDate.setText(resYars);
+        textDate.setTextColor(Color.RED);
     }
 }

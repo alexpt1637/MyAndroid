@@ -1,6 +1,7 @@
 package ru.alexpt.android.itprogerlesson8;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -43,28 +44,44 @@ public class ActivityTwo extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.btnTest1:
                         testText.setText(R.string.btnTest1);
-                        btn1.setText(R.string.newName);
-                        testText.setTextColor(colorTest1);
+                        btn1.setTextColor(Color.RED);
+                        test1.setTextColor(Color.RED);
+                        btn1.setText(R.string.red);
                         toast1.show();
                         break;
                     case R.id.btnTest2:
                         testText.setText(R.string.btnTest2);
+                        btn2.setTextColor(Color.MAGENTA);
+                        test2.setTextColor(Color.MAGENTA);
+                        btn2.setText(R.string.magenta);
                         toast2.show();
                         break;
                     case R.id.btnTest3:
                         testText.setText(R.string.btnTest3);
+                        btn3.setTextColor(Color.GREEN);
+                        test3.setTextColor(Color.GREEN);
+                        btn3.setText(R.string.green);
                         toast3.show();
                         break;
                     case R.id.textView1:
                         testText.setText(R.string.btnTest1);
+                        btn1.setText(R.string.Test1);
+                        btn1.setTextColor(Color.WHITE);
+                        test1.setTextColor(Color.WHITE);
                         toast1.show();
                         break;
                     case R.id.textView2:
                         testText.setText(R.string.btnTest2);
+                        btn2.setText(R.string.Test2);
+                        btn2.setTextColor(Color.WHITE);
+                        test2.setTextColor(Color.WHITE);
                         toast2.show();
                         break;
                     case R.id.textView3:
                         testText.setText(R.string.btnTest3);
+                        btn3.setText(R.string.Test3);
+                        btn3.setTextColor(Color.WHITE);
+                        test3.setTextColor(Color.WHITE);
 //                        toast3.setGravity(Gravity.CENTER, 0, 0);
                         toast3.show();
                         break;
