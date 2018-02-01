@@ -4,4 +4,9 @@
     <string name="textData">Дата</string>
     <string name="textToast1">Нажатие кнопки выполнено</string>
     <string name="textView2">Контроль данных</string>
+    <string name="buttonDate2">Date 2</string>
+    <string name="textClick">Войти</string>
+    <string name="buttonDate1">Date 1</string>
+    <string name="txtdateToast1">Save Date 1</string>
+    <string name="txtdateToast2">Save Date 2</string>
 </resources>

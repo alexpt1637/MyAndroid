@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private DatePicker mDatePicker;
     private TextView mInfoTextView;
     private TextView mTextClick;
+    private EditText etTextDate1, etTextDate2;
+    private Button btnDate1, btnDate2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,14 @@ public class MainActivity extends AppCompatActivity {
 
         mInfoTextView = (TextView) findViewById(R.id.textView);
         mDatePicker = (DatePicker) findViewById(R.id.datePicker);
-        mTextClick = (TextView) findViewById(R.id.textView1);
+        mTextClick = (TextView) findViewById(R.id.textClick);
+        etTextDate1 = (EditText) findViewById(R.id.editTextDate1);
+        etTextDate2 = (EditText) findViewById(R.id.editTextDate2);
+        btnDate1 = (Button) findViewById(R.id.buttonDate1);
+        btnDate2 = (Button) findViewById(R.id.buttonDate2);
+
+        final Toast datetoast1 = Toast.makeText(MainActivity.this, R.string.txtdateToast1, Toast.LENGTH_SHORT);
+        final Toast datetoast2 = Toast.makeText(MainActivity.this, R.string.txtdateToast2, Toast.LENGTH_SHORT);
 
         Calendar today = Calendar.getInstance();
 
@@ -76,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         // Простой переход на вторую активити без авторизации
                         switch (view.getId()) {
-                            case R.id.textView1:
+                            case R.id.textClick:
                                 startActivity(intent);
                                 break;
                             default:
@@ -85,6 +95,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        btnDate1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("date1name", mInfoTextView.getText().toString());
+                datetoast1.show();
+            }
+        });
+
+        btnDate2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent.putExtra("date2name", mInfoTextView.getText().toString());
+                datetoast2.show();
+            }
+        });
     }
 
 

@@ -1,5 +1,6 @@
 package ru.alexpt.android.datepickerproject;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,27 +23,36 @@ public class MainDateActivity extends AppCompatActivity {
     Date date = new Date();
 
     String resYars;
-//    int date1, date2;
+//    String date1, date2;
     Date dateOne, dateTwo;
     long difference;
     int days, yars, months;
 
-    int date1 = 21092009;
-    int date2 = 29092017;
+    String date1 = "21.9.9";
+    String date2 = "29.9.17";
+
+    /*long date1 = etDate1.getId();
+    long date2 = etDate2.getId();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.date);
 
-        etDate1 = (EditText) findViewById(R.id.editText);
-        etDate2 = (EditText) findViewById(R.id.editText2);
-        textDate = (TextView) findViewById(R.id.textDate);
-        textViewDate = (TextView) findViewById(R.id.textView2);
+        etDate1 = (EditText) findViewById(R.id.editTextDate1);
+        etDate2 = (EditText) findViewById(R.id.editTextDate2);
+        textDate = (TextView) findViewById(R.id.textDateSave);
+        textViewDate = (TextView) findViewById(R.id.textSave);
         result = (Button) findViewById(R.id.btnResult);
 
-        /*date1 = etDate1.getId();
-        date2 = etDate2.getId();*/
+        Intent intent = getIntent();
+
+        String fdate1 = intent.getStringExtra("date1name");
+        String fdate2 = intent.getStringExtra("date2name");
+
+        etDate1.setText(date1);
+        etDate2.setText(date2);
+        textDate.setText("Date1: " + fdate1 + "\nDate2: " + fdate2);
 
         final Toast toast1 = Toast.makeText(MainDateActivity.this, R.string.textToast1, Toast.LENGTH_SHORT);
         final MainDateMetod mMainDateMetod = new MainDateMetod();
@@ -53,7 +63,6 @@ public class MainDateActivity extends AppCompatActivity {
                 switch (view.getId()) {
                     case R.id.btnResult:
                         mMainDateMetod.mainDateMetod(textDate);
-
                         toast1.show();
                         break;
                 }
@@ -69,9 +78,9 @@ class MainDateMetod extends MainDateActivity {
 
         public void mainDateMetod(TextView textDate){
 
-        // ---------------------------- Количество дней между датами --------------------------------------
+        // ---------------------------- Количество дней между датами ----------------------------------------
 
-        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
 
         dateOne = null;
         dateTwo = null;
@@ -95,6 +104,6 @@ class MainDateMetod extends MainDateActivity {
 
         resYars = "Страховой стаж: " + yars + " лет " + months + " мес.";
         textDate.setText(resYars);
-        textDate.setTextColor(Color.RED);
+        textDate.setTextColor(Color.GREEN);
     }
 }

@@ -6,29 +6,29 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextDate1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Date1: ddMMyyyy"
-        android:inputType="number"
+        android:hint="Date1:"
+        android:inputType="text"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="24sp" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextDate2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Date2: ddMMyyyy"
-        android:inputType="number"
+        android:hint="Date2:"
+        android:inputType="text"
         android:textColor="@android:color/darker_gray"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textDate"
+        android:id="@+id/textDateSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -39,7 +39,7 @@
         android:textColor="@android:color/darker_gray" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
