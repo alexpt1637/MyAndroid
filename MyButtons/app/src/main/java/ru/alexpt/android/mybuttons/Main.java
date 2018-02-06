@@ -2,25 +2,22 @@ package ru.alexpt.android.mybuttons;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Main extends AppCompatActivity {
 
-    EditText input;
+    EditText input, input2;
     TextView output;
-    Button btn;
-    ImageButton imb;
+    Button btn, btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,29 +25,56 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         input = (EditText) findViewById(R.id.input);
+        input2 = (EditText) findViewById(R.id.input2);
         output = (TextView) findViewById(R.id.output);
         btn = (Button) findViewById(R.id.button);
-        imb = (ImageButton) findViewById(R.id.imageButton);
+        btn2 = (Button) findViewById(R.id.button2);
 
-        imb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Main.this, Image.class));
-            }
-        });
     }
 
     public void clickButton(View view) {
-        String s = input.getText().toString();
-        int x = Integer.parseInt(s);
-        output.setText(String.valueOf(x));
+        String date1 = input.getText().toString();
+        String date2 = input2.getText().toString();
+
+        // ---------------------------- Количество дней между датами ----------------------------------------
+
+        SimpleDateFormat format = new SimpleDateFormat("ddMMyyyy");
+
+        Date dateOne, dateTwo;
+
+        dateOne = null;
+        dateTwo = null;
+
+        try {
+            dateOne = format.parse(String.valueOf(date1));
+            dateTwo = format.parse(String.valueOf(date2));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //---------------------- Количество дней между датами в миллисекундах ---------------------------------
+
+        long difference = dateTwo.getTime() - dateOne.getTime();
+
+        //-------------- Перевод количества дней между датами из миллисекунд в дни ----------------------------
+
+        String resYars;
+        int days, yars, months;
+
+        days =  (int)(difference / (24 * 60 * 60 * 1000)); // миллисекунды / (24ч * 60мин * 60сек * 1000мс)
+        yars = days / 365;
+        months = (days - yars * 365) / 30;
+
+        resYars = "Страховой стаж: " + yars + " лет " + months + " мес.";
+
+        output.setText(String.valueOf(resYars));
     }
 
-    /*private void clickImButton() {
-        startActivity(new Intent(Main.this, Image.class));
-    }*/
+    public void clickButton2(View view) {
+        Intent intent = new Intent(Main.this, SaveActivity.class);
+        startActivity(intent);
+        final Toast toastSave = Toast.makeText(Main.this, "Переход выполнен", Toast.LENGTH_SHORT);
+        toastSave.show();
+    }
 
-   /* public void clickImButton(View view) {
-        startActivity(new Intent(Main.this, Image.class));
-    }*/
 }

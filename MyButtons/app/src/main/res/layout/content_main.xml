@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp"
-        android:text="Введите данные:"
-        android:textColor="@android:color/black"
+        android:text="@string/textview"
+        android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
+            android:hint="ddMMyyyy"
             android:inputType="number" />
 
         <Button
@@ -38,15 +39,38 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="clickButton"
-            android:text="OK!" />
+            android:text="NEW" />
 
 </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/input2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="ddMMyyyy"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickButton2"
+            android:text="OK" />
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp"
-        android:text="Результат:"
+        android:text="@string/result"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
@@ -56,14 +80,5 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginVertical="30dp"
-        android:onClick="clickImButton"
-        android:src="@drawable/avatar10045_6" />
 
 </LinearLayout>
