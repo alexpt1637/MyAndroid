@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="clickButton"
-            android:text="NEW" />
+            android:text="Рассчет" />
 
 </LinearLayout>
 
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="clickButton2"
-            android:text="OK" />
+            android:text="Переход" />
 
     </LinearLayout>
 

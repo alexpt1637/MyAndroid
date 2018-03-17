@@ -72,7 +72,11 @@ public class Main extends AppCompatActivity {
 
     public void clickButton2(View view) {
         Intent intent = new Intent(Main.this, SaveActivity.class);
+        intent.putExtra("fname1", output.getText().toString());
+        // intent.putExtra("fname2", output.getText().toString());
+        // intent.putExtra("fname3", output.getText().toString());
         startActivity(intent);
+
         final Toast toastSave = Toast.makeText(Main.this, "Переход выполнен", Toast.LENGTH_SHORT);
         toastSave.show();
     }

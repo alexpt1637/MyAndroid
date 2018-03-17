@@ -1,5 +1,6 @@
 package ru.alexpt.android.mybuttons;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,13 +17,19 @@ public class SaveActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.listView1);
 
         // определяем массив типа String
-        final String[] catnames = new String[] { "Рыжик", "Барсик", "Мурзик",
-                "Мурка", "Васька", "Томасина", "Кристина", "Пушок", "Дымка",
-                "Кузя", "Китти", "Масяня", "Симба" };
+        final String[] duration = new String[] { "период 1", "период 2", "период 3",
+                "период 4", "период 5", "период 6", "период 7", "период 8", "период 9",
+                "период 10", "период 11", "период 12", "период 13", "период 14", "период 15" };
+
+        // получаем Intent и извлекаем из него String-объект с именем fname, значение, которое мы помстили в коде Main.java
+        Intent intent = getIntent();
+        duration [0] = intent.getStringExtra("fname1");
+        // duration [1] = intent.getStringExtra("fname2");
+        // duration [2] = intent.getStringExtra("fname3");
 
         // используем адаптер данных
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, catnames);
+                android.R.layout.simple_list_item_1, duration);
 
         listView.setAdapter(adapter);
     }
