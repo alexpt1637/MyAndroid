@@ -72,13 +72,15 @@ public class Main extends AppCompatActivity {
 
     public void clickButton2(View view) {
         Intent intent = new Intent(Main.this, SaveActivity.class);
+        // поместим в Intent объект с именем: fname
+        // Используется метод putExtra. Он добавляет к объекту пару. Первый параметр – это ключ(имя), второй - значение
         intent.putExtra("fname1", output.getText().toString());
-        // intent.putExtra("fname2", output.getText().toString());
-        // intent.putExtra("fname3", output.getText().toString());
-        startActivity(intent);
+        // intent.putExtra("fname2", output.getText().toString());  // 2 поле
+        // intent.putExtra("fname3", output.getText().toString());  // 3 поле
+
+        startActivity(intent);  // отправляем укомплектованный Intent с помощью метода startActivity
 
         final Toast toastSave = Toast.makeText(Main.this, "Переход выполнен", Toast.LENGTH_SHORT);
         toastSave.show();
     }
-
 }
