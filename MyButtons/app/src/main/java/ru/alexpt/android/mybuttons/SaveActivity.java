@@ -18,15 +18,18 @@ public class SaveActivity extends AppCompatActivity {
 
         // определяем массив типа String
         final String[] duration = new String[] { "период 1", "период 2", "период 3",
-                "период 4", "период 5", "период 6", "период 7" };
+                "период 4", "период 5", "период 6", "период 7", "период 8" };
 
         // получаем Intent и извлекаем из него String-объект с именем fname, значение, которое мы помстили в коде Main.java
         Intent intent = getIntent();
         duration [0] = intent.getStringExtra("fname1");
-        // duration [1] = intent.getStringExtra("fname2");
-        // duration [2] = intent.getStringExtra("fname3");
 
-        // используем адаптер данных
+        // рабочие пометки в массиве
+        duration [5] = "Раздел находится в стадии разработки";
+        duration [6] = "версия 1.0";
+        duration [7] = "Замечания и предложения по работе программы прошу направлять на адрес: alexpt1637@yandex.ru";
+
+        // используем адаптер данных для отображения сведений из массива в listView
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, duration);
 

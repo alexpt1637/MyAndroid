@@ -1,0 +1,9 @@
+MIDlet-Jar-Size: 53636
+MIDlet-Jar-URL: gradle-wrapper.jar
+MIDlet-Vendor:
+MIDlet-Version: 1.0
+MIDlet-Name: gradle-wrapper.jar
+Manifest-Version: 1.0
+Implementation-Title: Gradle
+Implementation-Version: 2.10
+
