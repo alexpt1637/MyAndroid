@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:orientation="vertical"
     tools:context=".Main">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp"
         android:text="@string/textview"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,9 +21,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/input"
@@ -32,21 +32,24 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="ddMMyyyy"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
             android:onClick="clickButton"
-            android:text="Рассчет" />
+            android:text="Рассчет"
+            android:textColor="@android:color/black" />
 
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/input2"
@@ -55,14 +58,17 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="ddMMyyyy"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
             android:onClick="clickButton2"
-            android:text="Переход" />
+            android:text="Переход"
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 
