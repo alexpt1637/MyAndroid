@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestView</string>
+    <string name="text1">Hello World!</string>
+    <string name="newText">New Text</string>
+</resources>
