@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@android:color/holo_green_dark"
     android:orientation="vertical"
     tools:context=".Main">
 
@@ -33,16 +33,19 @@
             android:ems="10"
             android:hint="ddMMyyyy"
             android:inputType="number"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/holo_green_dark"
             android:onClick="clickButton"
             android:text="Рассчет"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -59,16 +62,19 @@
             android:ems="10"
             android:hint="ddMMyyyy"
             android:inputType="number"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
+            android:background="@android:color/holo_green_dark"
             android:onClick="clickButton2"
             android:text="Переход"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -85,6 +91,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
 </LinearLayout>

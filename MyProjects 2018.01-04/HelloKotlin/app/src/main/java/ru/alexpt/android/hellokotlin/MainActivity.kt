@@ -21,9 +21,9 @@ class MainActivity : AppCompatActivity() {
 
     fun onClick(view: View) {
         if (mNameEditText.text.length == 0) {
-            mHelloTextView.text = "Hello, Kitty!"
+            mHelloTextView.text = "Hello!"
         } else {
-            mHelloTextView.text = "Привет, " + mNameEditText.text
+            mHelloTextView.text = "Привет, " + mNameEditText.text + "!"
         }
     }
 }
