@@ -4,4 +4,7 @@
     <string name="newText">New Text</string>
     <string name="str_txt_onclick_button">Мы всё поменяли кнопкой!</string>
     <string name="str_txt_onclick_textview">Мы всё поменяли!</string>
+    <string name="str_value1">Выбран элемент Value 1</string>
+    <string name="str_value2">Выбран элемент Value 2</string>
+    <string name="i_agree">I agree</string>
 </resources>
