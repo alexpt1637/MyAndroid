@@ -33,6 +33,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickNull"
         android:text="Hello, Kotlin!"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"

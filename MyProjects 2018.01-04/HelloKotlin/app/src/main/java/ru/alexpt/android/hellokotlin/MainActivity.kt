@@ -20,10 +20,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClick(view: View) {
-        if (mNameEditText.text.length == 0) {
-            mHelloTextView.text = "Hello!"
-        } else {
+        if (mNameEditText.text.length == 0) {       // Проверим поле ввода на пустоту
+            mHelloTextView.text = "Hello!"          // Если поле ввода пустое
+        } else {                                    // Если в поле имеется информация
             mHelloTextView.text = "Привет, " + mNameEditText.text + "!"
         }
+    }
+
+    fun onClickNull(view: View) {
+        mNameEditText.text = null                   // Очистим поле ввода EditText
     }
 }
