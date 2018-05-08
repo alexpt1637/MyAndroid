@@ -2,4 +2,6 @@
     <string name="app_name">TestView</string>
     <string name="text1">Hello World!</string>
     <string name="newText">New Text</string>
+    <string name="str_txt_onclick_button">Мы всё поменяли кнопкой!</string>
+    <string name="str_txt_onclick_textview">Мы всё поменяли!</string>
 </resources>
