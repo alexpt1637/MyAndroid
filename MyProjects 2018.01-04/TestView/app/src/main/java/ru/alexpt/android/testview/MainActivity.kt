@@ -1,5 +1,6 @@
 package ru.alexpt.android.testview
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var mRbtn2: Button
     internal lateinit var mCheck: Button
     internal lateinit var mButton4: Button
+    internal lateinit var mToast: Toast
+    internal lateinit var mButton3: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,10 +36,18 @@ class MainActivity : AppCompatActivity() {
         mRbtn2 = findViewById(R.id.r2)
         mCheck = findViewById(R.id.checkbox)
         mButton4 = findViewById(R.id.button4)
+        mButton3 = findViewById(R.id.button3)
 
-        mButton4.setOnClickListener(View.OnClickListener {
-            // Пока ничего не делает, но скоро будет!
-            toastMe(view = textView1)
+        intent = Intent(this, ActivityNew1::class.java)
+        mToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT)
+
+        mButton4.setOnClickListener({
+            mText.setTextColor(Color.WHITE)
+            mToast.show()
+        })
+
+        mButton3.setOnClickListener({
+            startActivity(intent)
         })
     }
 
@@ -63,11 +74,6 @@ class MainActivity : AppCompatActivity() {
 
     fun onCheck(view: View){
         mCheck.setOnClickListener {mButton1.setTextColor(Color.BLUE); mButton2.setTextColor(Color.YELLOW)}
-        toastMe(view)
-    }
-
-    fun toastMe(view: View) {
-        val myToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT)
-        myToast.show()
+        mToast.show()
     }
 }
