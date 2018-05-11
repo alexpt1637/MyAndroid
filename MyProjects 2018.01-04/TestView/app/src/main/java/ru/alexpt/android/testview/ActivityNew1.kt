@@ -170,7 +170,7 @@ class ActivityNew1 : AppCompatActivity() {
         }
     }
 
-    fun hypotenuse(view: View){
+    fun hypotenuse(view: View){         // Длина гипотенузы
         blackColor(view)
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
         val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
