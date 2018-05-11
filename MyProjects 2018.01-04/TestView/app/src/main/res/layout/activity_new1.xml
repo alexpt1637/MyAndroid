@@ -116,7 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
+            android:onClick="onRoot"
+            android:text="√2"
             android:textSize="24sp" />
 
         <Button
@@ -137,6 +138,52 @@
 
         <Button
             android:id="@+id/jjjjj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text=" "
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/k"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/kk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/kkk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/kkkk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text=" "
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/kkkkk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"

@@ -133,4 +133,13 @@ class ActivityNew1 : AppCompatActivity() {
         mDel.setTextColor(Color.GRAY)
         mToast.show()
     }
+
+    fun onRoot(view: View){
+        blackColor(view)
+        val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
+        mEl2.setTextColor(Color.DKGRAY)
+
+        val resText = (Math.sqrt(num1)).toInt()
+        mText.text = "Целая часть кв.корня числа: " + Integer.toString(resText)
+    }
 }
