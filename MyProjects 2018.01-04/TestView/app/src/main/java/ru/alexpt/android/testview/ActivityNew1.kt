@@ -134,12 +134,48 @@ class ActivityNew1 : AppCompatActivity() {
         mToast.show()
     }
 
-    fun onRoot(view: View){
+    fun onRoot(view: View){             // Корень квадратный числа
         blackColor(view)
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
-        mEl2.setTextColor(Color.DKGRAY)
 
         val resText = (Math.sqrt(num1)).toInt()
         mText.text = "Целая часть кв.корня числа: " + Integer.toString(resText)
+    }
+
+    fun onArea(view: View){             // Площадь прямоугольника /квадрата/
+        blackColor(view)
+        // значение текстового элемента приводим к строке и далее в число
+        val num1 = Integer.parseInt(mEl1.text.toString())
+        val num2 = Integer.parseInt(mEl2.text.toString())
+
+        val resText = num1 * num2
+
+        when(num1){
+            num2 -> mText.text = "Площадь квадрата: " + Integer.toString(resText) + " кв.ед."
+            else -> mText.text = "Площадь прямоугольника: " + Integer.toString(resText) + " кв.ед."
+        }
+    }
+
+    fun perimeter(view: View){          // Периметр прямоугольника /квадрата/
+        blackColor(view)
+        // значение текстового элемента приводим к строке и далее в число
+        val num1 = Integer.parseInt(mEl1.text.toString())
+        val num2 = Integer.parseInt(mEl2.text.toString())
+
+        val resText = num1 * 2 + num2 * 2
+
+        when(num1){
+            num2 -> mText.text = "Периметр квадрата: " + Integer.toString(resText) + " ед."
+            else -> mText.text = "Периметр прямоугольника: " + Integer.toString(resText) + " ед."
+        }
+    }
+
+    fun hypotenuse(view: View){
+        blackColor(view)
+        val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
+        val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
+
+        val resText = (Math.hypot(num1, num2)).toInt()
+        mText.text = "Длина гипотенузы: " + Integer.toString(resText) + " ед."
     }
 }

@@ -125,7 +125,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
+            android:onClick="onArea"
+            android:text="S"
             android:textSize="24sp" />
 
         <Button
@@ -133,7 +134,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
+            android:onClick="perimeter"
+            android:text="P"
             android:textSize="24sp" />
 
         <Button
@@ -141,7 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text=" "
+            android:onClick="hypotenuse"
+            android:text="∆"
             android:textSize="24sp" />
     </LinearLayout>
 
