@@ -1,6 +1,7 @@
 package ru.alexpt.android.testview
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,6 +17,8 @@ class ActivityNew1 : AppCompatActivity() {
     internal lateinit var mEl1: EditText
     internal lateinit var mEl2: EditText
     internal lateinit var mDel: Button
+    internal lateinit var mAdd: Button
+    internal lateinit var mToastAdd: Toast
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,27 +28,30 @@ class ActivityNew1 : AppCompatActivity() {
         mEl1 = findViewById(R.id.num1)
         mEl2 = findViewById(R.id.num2)
         mDel = findViewById(R.id.delete)
+        mAdd = findViewById(R.id.kkkkk)
+
+        intent = Intent(this, ActivityNew2::class.java)
+        mToastAdd = Toast.makeText(this, "Переход выполнен", Toast.LENGTH_SHORT)
+
+        mAdd.setOnClickListener({
+            startActivity(intent)
+            mToastAdd.show()
+        })
     }
 
     // Реализация калькулятора
     @SuppressLint("SetTextI18n")
     fun onClickSum(view: View){         // Сумма двух чисел
         blackColor(view)
-        // Поля ввода данных
-        val el1 = findViewById(R.id.num1) as EditText
-        val el2 = findViewById(R.id.num2) as EditText
-
-        // Текстовое поле результата вычислений
-        val resText = findViewById(R.id.Result) as TextView
-
         // Текстовое поле преобразовываем в число и помещаем в переменную типа int
-        val num1 = Integer.parseInt(el1.text.toString()) // значение текстового элемента приводим к строке и далее в число
-        val num2 = Integer.parseInt(el2.text.toString())
+        // значение текстового элемента приводим к строке и далее в число
+        val num1 = Integer.parseInt(mEl1.text.toString())
+        val num2 = Integer.parseInt(mEl2.text.toString())
 
-        val resSum = num1 + num2
+        val resText = num1 + num2
         // Помещаем в текстовое поле результата вычисления
-        resText.text ="Сумма двух чисел: " + Integer.toString(resSum)  // число преобразовываем в строку для текстового поля
-        // Далее в acrivity_maim связываем функцию с кнопкой (в поле onClick выбираем метод onButtonClick)
+        // число преобразовываем в строку для текстового поля
+        mText.text ="Сумма двух чисел: $resText"
     }
 
     fun onClickDiff(view: View){        // Разность двух чисел
@@ -55,29 +61,25 @@ class ActivityNew1 : AppCompatActivity() {
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
-        val resDiff = num1 - num2
+        val resText = num1 - num2
         // Помещаем в текстовое поле результата вычисления
         // число преобразовываем в строку для текстового поля
-        mText.text ="Разность двух чисел: " + Integer.toString(resDiff)
-        // Далее в acrivity_maim связываем функцию с кнопкой (в поле onClick выбираем метод onButtonClick)
+        mText.text ="Разность двух чисел: $resText"
     }
 
     fun exponentiation(view: View){        // Возведение в степень
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
         val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
 
-        val resText = (Math.pow(num1, num2)).toInt()
+        val resText = Math.pow(num1, num2)
+        val resText1 = resText - resText % 0.01
         val num = num2.toInt()
 
-        if(resText < 2147483647){                       // Int <= 2147483647
-            blackColor(view)
-            when(num2){
-                2.0 -> mText.text = "Квадрат числа: " + Integer.toString(resText)
-                3.0 -> mText.text = "Куб числа: " + Integer.toString(resText)
-                else -> mText.text = "Число в $num-ой степени: " + Integer.toString(resText)
-            }
-        } else {
-            noCorrect(view)
+        blackColor(view)
+        when(num2){
+            2.0 -> mText.text = "Квадрат числа: $resText1 ($resText)"
+            3.0 -> mText.text = "Куб числа: $resText1 ($resText)"
+            else -> mText.text = "Число в $num-ой степени: $resText1 ($resText)"
         }
     }
 
@@ -90,7 +92,7 @@ class ActivityNew1 : AppCompatActivity() {
         val resText = num1 * num2
 
         if(resText < 2147483647 && resText > 0) {
-            mText.text = "Произведение двух чисел: " + Integer.toString(resText)
+            mText.text = "Произведение двух чисел: $resText"
         } else {
             noCorrect(view)
         }
@@ -119,8 +121,9 @@ class ActivityNew1 : AppCompatActivity() {
             noCorrect(view)
         } else {
             blackColor(view)
-            val resText = num1 / num2
-            mText.text = "Целое частное двух чисел: " + Integer.toString(resText)
+            val resText = num1.toDouble() / num2.toDouble()
+            val resText1 = resText - resText % 0.01
+            mText.text = "Частное двух чисел: $resText1 ($resText)"
         }
     }
 
@@ -138,8 +141,9 @@ class ActivityNew1 : AppCompatActivity() {
         blackColor(view)
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
 
-        val resText = (Math.sqrt(num1)).toInt()
-        mText.text = "Целая часть кв.корня числа: " + Integer.toString(resText)
+        val resText = Math.sqrt(num1)
+        val resText1 = resText - resText % 0.01
+        mText.text = "Корень квадратный числа: $resText1 ($resText)"
     }
 
     fun onArea(view: View){             // Площадь прямоугольника /квадрата/
@@ -151,8 +155,8 @@ class ActivityNew1 : AppCompatActivity() {
         val resText = num1 * num2
 
         when(num1){
-            num2 -> mText.text = "Площадь квадрата: " + Integer.toString(resText) + " кв.ед."
-            else -> mText.text = "Площадь прямоугольника: " + Integer.toString(resText) + " кв.ед."
+            num2 -> mText.text = "Площадь квадрата: $resText кв.ед."
+            else -> mText.text = "Площадь прямоугольника: $resText кв.ед."
         }
     }
 
@@ -165,8 +169,8 @@ class ActivityNew1 : AppCompatActivity() {
         val resText = num1 * 2 + num2 * 2
 
         when(num1){
-            num2 -> mText.text = "Периметр квадрата: " + Integer.toString(resText) + " ед."
-            else -> mText.text = "Периметр прямоугольника: " + Integer.toString(resText) + " ед."
+            num2 -> mText.text = "Периметр квадрата: $resText ед."
+            else -> mText.text = "Периметр прямоугольника: $resText ед."
         }
     }
 
@@ -175,7 +179,17 @@ class ActivityNew1 : AppCompatActivity() {
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
         val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
 
-        val resText = (Math.hypot(num1, num2)).toInt()
-        mText.text = "Длина гипотенузы: " + Integer.toString(resText) + " ед."
+        val resText = Math.hypot(num1, num2)
+        val resText1 = resText - resText % 0.01
+        mText.text = "Длина гипотенузы: $resText1 ед. ($resText)"
+    }
+
+    fun onRs(view: View){               // Площадь круга с R = num1
+        blackColor(view)
+        val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
+
+        val resText = Math.PI * Math.pow(num1, 2.0)
+        val resText1 = resText - resText % 0.01
+        mText.text = "Площадь круга: $resText1 кв.ед. ($resText)"
     }
 }

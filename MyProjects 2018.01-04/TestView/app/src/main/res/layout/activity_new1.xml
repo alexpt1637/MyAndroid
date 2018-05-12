@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:onClick="onClickSum"
             android:text="+"
-            android:textSize="24sp"
+            android:textSize="18sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="287dp" />
@@ -64,7 +64,7 @@
             android:layout_weight="1"
             android:onClick="onClickDiff"
             android:text="-"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/multiply"
@@ -73,7 +73,7 @@
             android:layout_weight="1"
             android:onClick="onMultiply"
             android:text="*"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/divide"
@@ -82,7 +82,7 @@
             android:layout_weight="1"
             android:onClick="onDivide"
             android:text="/"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/delete"
@@ -91,7 +91,7 @@
             android:layout_weight="0"
             android:onClick="onClickNull"
             android:text="C"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -106,7 +106,7 @@
             android:layout_weight="1"
             android:onClick="exponentiation"
             android:text="^"
-            android:textSize="24sp"
+            android:textSize="18sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="287dp" />
@@ -118,7 +118,7 @@
             android:layout_weight="1"
             android:onClick="onRoot"
             android:text="√2"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/jjj"
@@ -127,7 +127,7 @@
             android:layout_weight="1"
             android:onClick="onArea"
             android:text="S"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/jjjj"
@@ -136,7 +136,7 @@
             android:layout_weight="1"
             android:onClick="perimeter"
             android:text="P"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/jjjjj"
@@ -145,7 +145,7 @@
             android:layout_weight="0"
             android:onClick="hypotenuse"
             android:text="∆"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -158,40 +158,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
-            android:textSize="24sp" />
+            android:text="sin"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/kk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
-            android:textSize="24sp" />
+            android:text="cos"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/kkk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
-            android:textSize="24sp" />
+            android:onClick="onRs"
+            android:text="RS"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/kkkk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=" "
-            android:textSize="24sp" />
+            android:text="RL"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/kkkkk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text=" "
-            android:textSize="24sp" />
+            android:text="add"
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>
