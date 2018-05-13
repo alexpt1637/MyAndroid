@@ -1,5 +1,6 @@
 package ru.alexpt.android.testview
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -104,6 +105,13 @@ class ActivityNew2 : AppCompatActivity() {
         numberField!!.text = null
         operationField!!.text = null
         resultField!!.text = null
+        mToast.show()
+    }
+
+    fun onReturn2(view: View){          // Возврат на главный экран
+        val mToast = Toast.makeText(this, "Возврат на главный экран выполнен", Toast.LENGTH_SHORT)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         mToast.show()
     }
 }

@@ -212,4 +212,11 @@ class ActivityNew1 : AppCompatActivity() {
                 mText.text = "cos: $resText1 ед. ($resText)" } }
         }
     }
+
+    fun onReturn1(view: View){          // Возврат на главный экран
+        val mToast = Toast.makeText(this, "Возврат на главный экран выполнен", Toast.LENGTH_SHORT)
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        mToast.show()
+    }
 }
