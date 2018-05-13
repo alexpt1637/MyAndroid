@@ -118,16 +118,30 @@
                 android:layout_marginLeft="20sp"
                 android:onClick="onClickRbtn"
                 android:text="Value 2" />
-
         </RadioGroup>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:orientation="horizontal">
+
         <CheckBox
-            android:id="@+id/checkbox"
+            android:id="@+id/check1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
-            android:onClick="onCheck"
-            android:text="@string/i_agree" />
+            android:onClick="onCheckboxClicked"
+            android:text="1 экран" />
+
+        <CheckBox
+            android:id="@+id/check2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:onClick="onCheckboxClicked"
+            android:text="2 экран" />
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,8 +151,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10sp"
                 android:layout_marginLeft="10sp"
+                android:layout_marginTop="10sp"
                 android:text="Выбор экрана:"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />

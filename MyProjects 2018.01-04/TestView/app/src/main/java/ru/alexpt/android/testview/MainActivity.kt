@@ -6,9 +6,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.attr.checked
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +22,8 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var mButton2: Button
     internal lateinit var mRbtn1: Button
     internal lateinit var mRbtn2: Button
-    internal lateinit var mCheck: Button
+    internal lateinit var mCheck1: CheckBox
+    internal lateinit var mCheck2: CheckBox
     internal lateinit var mButton4: Button
     internal lateinit var mToast: Toast
     internal lateinit var mToastAdd: Toast
@@ -38,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         mButton2 = findViewById(R.id.button2)
         mRbtn1 = findViewById(R.id.r1)
         mRbtn2 = findViewById(R.id.r2)
-        mCheck = findViewById(R.id.checkbox)
+        mCheck1 = findViewById(R.id.check1)
+        mCheck2 = findViewById(R.id.check2)
         mButton4 = findViewById(R.id.button4)
         mBtn1 = findViewById(R.id.btn1)
         mBtn2 = findViewById(R.id.btn2)
@@ -84,7 +90,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onCheck(view: View){
-        mCheck.setOnClickListener {mButton1.setTextColor(Color.BLUE); mButton2.setTextColor(Color.YELLOW)}
+        mCheck1.setOnClickListener {mButton1.setTextColor(Color.BLUE); mButton2.setTextColor(Color.YELLOW)}
         mToast.show()
+    }
+
+    // В качестве параметра в обработчик нажатия onCheckboxClicked передается нажатый флажок
+    // С помощью метода isChecked() можно узнать, выделен ли флажок - в этом случае метод возвращает true
+    fun onCheckboxClicked(view: View){
+        // Получаем флажок
+        val language: CheckBox = view as CheckBox
+        // Получаем, отмечен ли данный флажок
+        val checked= language.isChecked()
+
+        // Выполнить соответствующие действия
+        when (view) {
+            mCheck1 -> {if(checked){
+                startActivity(mIntent1)}}
+            mCheck2 -> {if(checked){
+                startActivity(mIntent2)}}
+        }
+        mToastAdd.show()
     }
 }
