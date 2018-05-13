@@ -21,7 +21,11 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var mCheck: Button
     internal lateinit var mButton4: Button
     internal lateinit var mToast: Toast
-    internal lateinit var mButton3: Button
+    internal lateinit var mToastAdd: Toast
+    internal lateinit var mBtn1: Button
+    internal lateinit var mBtn2: Button
+    internal lateinit var mIntent1: Intent
+    internal lateinit var mIntent2: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,19 +40,26 @@ class MainActivity : AppCompatActivity() {
         mRbtn2 = findViewById(R.id.r2)
         mCheck = findViewById(R.id.checkbox)
         mButton4 = findViewById(R.id.button4)
-        mButton3 = findViewById(R.id.button3)
+        mBtn1 = findViewById(R.id.btn1)
+        mBtn2 = findViewById(R.id.btn2)
 
-        intent = Intent(this, ActivityNew1::class.java)
+        mIntent1 = Intent(this, ActivityNew1::class.java)
+        mIntent2 = Intent(this, ActivityNew2::class.java)
         mToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT)
+        mToastAdd = Toast.makeText(this, "Переход выполнен", Toast.LENGTH_SHORT)
 
         mButton4.setOnClickListener({
             mText.setTextColor(Color.WHITE)
             mToast.show()
         })
+    }
 
-        mButton3.setOnClickListener({
-            startActivity(intent)
-        })
+    fun onIntent(view: View){
+        when(view){
+            mBtn1 -> startActivity(mIntent1)
+            mBtn2 -> startActivity(mIntent2)
+        }
+        mToastAdd.show()
     }
 
     fun onClickButton(view: View){

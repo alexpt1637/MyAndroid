@@ -19,6 +19,10 @@ class ActivityNew1 : AppCompatActivity() {
     internal lateinit var mDel: Button
     internal lateinit var mAdd: Button
     internal lateinit var mToastAdd: Toast
+    internal lateinit var mRs: Button
+    internal lateinit var mRl: Button
+    internal lateinit var mSin: Button
+    internal lateinit var mCos: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,11 @@ class ActivityNew1 : AppCompatActivity() {
         mEl1 = findViewById(R.id.num1)
         mEl2 = findViewById(R.id.num2)
         mDel = findViewById(R.id.delete)
-        mAdd = findViewById(R.id.kkkkk)
+        mAdd = findViewById(R.id.add)
+        mRs = findViewById(R.id.rs)
+        mRl = findViewById(R.id.rl)
+        mSin = findViewById(R.id.sin)
+        mCos = findViewById(R.id.cos)
 
         intent = Intent(this, ActivityNew2::class.java)
         mToastAdd = Toast.makeText(this, "Переход выполнен", Toast.LENGTH_SHORT)
@@ -49,21 +57,15 @@ class ActivityNew1 : AppCompatActivity() {
         val num2 = Integer.parseInt(mEl2.text.toString())
 
         val resText = num1 + num2
-        // Помещаем в текстовое поле результата вычисления
-        // число преобразовываем в строку для текстового поля
         mText.text ="Сумма двух чисел: $resText"
     }
 
     fun onClickDiff(view: View){        // Разность двух чисел
         blackColor(view)
-        // Текстовое поле преобразовываем в число и помещаем в переменную типа int
-        // значение текстового элемента приводим к строке и далее в число
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
         val resText = num1 - num2
-        // Помещаем в текстовое поле результата вычисления
-        // число преобразовываем в строку для текстового поля
         mText.text ="Разность двух чисел: $resText"
     }
 
@@ -85,7 +87,6 @@ class ActivityNew1 : AppCompatActivity() {
 
     fun onMultiply(view: View){         // Функция умножения
         blackColor(view)
-        // значение текстового элемента приводим к строке и далее в число
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
@@ -113,7 +114,6 @@ class ActivityNew1 : AppCompatActivity() {
     }
 
     fun onDivide(view: View){           // Функция деления
-        // значение текстового элемента приводим к строке и далее в число
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
@@ -148,7 +148,6 @@ class ActivityNew1 : AppCompatActivity() {
 
     fun onArea(view: View){             // Площадь прямоугольника /квадрата/
         blackColor(view)
-        // значение текстового элемента приводим к строке и далее в число
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
@@ -162,7 +161,6 @@ class ActivityNew1 : AppCompatActivity() {
 
     fun perimeter(view: View){          // Периметр прямоугольника /квадрата/
         blackColor(view)
-        // значение текстового элемента приводим к строке и далее в число
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
@@ -184,12 +182,34 @@ class ActivityNew1 : AppCompatActivity() {
         mText.text = "Длина гипотенузы: $resText1 ед. ($resText)"
     }
 
-    fun onRs(view: View){               // Площадь круга с R = num1
-        blackColor(view)
-        val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
+    fun onFourButtons(view: View){
+        val R = (Integer.parseInt(mEl1.text.toString())).toDouble()
+        val resText: Double
+        val resText1: Double
 
-        val resText = Math.PI * Math.pow(num1, 2.0)
-        val resText1 = resText - resText % 0.01
-        mText.text = "Площадь круга: $resText1 кв.ед. ($resText)"
+        when(view){
+            mRs -> {blackColor(view)                        // Площадь круга
+                resText = Math.PI * Math.pow(R, 2.0)
+                resText1 = resText - resText % 0.01
+                mText.text = "Площадь круга: $resText1 кв.ед. ($resText)"}
+            mRl -> {blackColor(view)                        // Длина окружности
+                resText = 2 * Math.PI * R
+                resText1 = resText - resText % 0.01
+                mText.text = "Длина окружности: $resText1 ед. ($resText)"}
+            mSin -> {if(R > 360){                           // Синус
+                noCorrect(view)
+            } else {
+                blackColor(view)
+                resText = Math.sin(R)
+                resText1 = resText - resText % 0.01
+                mText.text = "sin: $resText1 ед. ($resText)" } }
+            mCos -> {if(R > 360){                           // Косинус
+                noCorrect(view)
+            } else {
+                blackColor(view)
+                resText = Math.cos(R)
+                resText1 = resText - resText % 0.01
+                mText.text = "cos: $resText1 ед. ($resText)" } }
+        }
     }
 }
