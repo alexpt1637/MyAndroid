@@ -74,14 +74,14 @@ class ActivityNew1 : AppCompatActivity() {
         val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
 
         val resText = Math.pow(num1, num2)
-        val resText1 = resText - resText % 0.01
+        val str = String.format("%.2f", resText)
         val num = num2.toInt()
 
         blackColor(view)
         when(num2){
-            2.0 -> mText.text = "Квадрат числа: $resText1 ($resText)"
-            3.0 -> mText.text = "Куб числа: $resText1 ($resText)"
-            else -> mText.text = "Число в $num-ой степени: $resText1 ($resText)"
+            2.0 -> mText.text = "Квадрат числа: $str"
+            3.0 -> mText.text = "Куб числа: $str"
+            else -> mText.text = "Число в $num-ой степени: $str"
         }
     }
 
@@ -90,13 +90,8 @@ class ActivityNew1 : AppCompatActivity() {
         val num1 = Integer.parseInt(mEl1.text.toString())
         val num2 = Integer.parseInt(mEl2.text.toString())
 
-        val resText = num1 * num2
-
-        if(resText < 2147483647 && resText > 0) {
-            mText.text = "Произведение двух чисел: $resText"
-        } else {
-            noCorrect(view)
-        }
+        val resText = num1.toLong() * num2
+        mText.text = "Произведение двух чисел: $resText"
     }
 
     fun noCorrect(view: View){          // Индикация ввода некорректного значения
@@ -107,7 +102,7 @@ class ActivityNew1 : AppCompatActivity() {
     }
 
     fun blackColor(view: View){         // Функция начального цвета вывода текста
-        val mToast = Toast.makeText(this, "Color bkack!", Toast.LENGTH_SHORT)
+        val mToast = Toast.makeText(this, "Color black!", Toast.LENGTH_SHORT)
         mText.setTextColor(Color.BLACK)
         mDel.setTextColor(Color.BLACK)
         mToast.show()
@@ -121,9 +116,9 @@ class ActivityNew1 : AppCompatActivity() {
             noCorrect(view)
         } else {
             blackColor(view)
-            val resText = num1.toDouble() / num2.toDouble()
-            val resText1 = resText - resText % 0.01
-            mText.text = "Частное двух чисел: $resText1 ($resText)"
+            val resText = num1.toDouble() / num2
+            val str = String.format("%.2f", resText)
+            mText.text = "Частное двух чисел: $str"
         }
     }
 
@@ -142,8 +137,8 @@ class ActivityNew1 : AppCompatActivity() {
         val num1 = (Integer.parseInt(mEl1.text.toString())).toDouble()
 
         val resText = Math.sqrt(num1)
-        val resText1 = resText - resText % 0.01
-        mText.text = "Корень квадратный числа: $resText1 ($resText)"
+        val str = String.format("%.3f", resText)
+        mText.text = "Корень квадратный числа: $str"
     }
 
     fun onArea(view: View){             // Площадь прямоугольника /квадрата/
@@ -178,42 +173,42 @@ class ActivityNew1 : AppCompatActivity() {
         val num2 = (Integer.parseInt(mEl2.text.toString())).toDouble()
 
         val resText = Math.hypot(num1, num2)
-        val resText1 = resText - resText % 0.01
-        mText.text = "Длина гипотенузы: $resText1 ед. ($resText)"
+        val str = String.format("%.2f", resText)
+        mText.text = "Длина гипотенузы: $str ед."
     }
 
     fun onFourButtons(view: View){
         val R = (Integer.parseInt(mEl1.text.toString())).toDouble()
         val resText: Double
-        val resText1: Double
+        val str: String
 
         when(view){
-            mRs -> {blackColor(view)                        // Площадь круга
+            mRs -> {blackColor(view)                // Площадь круга
                 resText = Math.PI * Math.pow(R, 2.0)
-                resText1 = resText - resText % 0.01
-                mText.text = "Площадь круга: $resText1 кв.ед. ($resText)"}
-            mRl -> {blackColor(view)                        // Длина окружности
+                str = String.format("%.2f", resText)
+                mText.text = "Площадь круга при R = $R: \n$str кв.ед."}
+            mRl -> {blackColor(view)                // Длина окружности
                 resText = 2 * Math.PI * R
-                resText1 = resText - resText % 0.01
-                mText.text = "Длина окружности: $resText1 ед. ($resText)"}
-            mSin -> {if(R > 360){                           // Синус
+                str = String.format("%.2f", resText)
+                mText.text = "Длина окружности при R = $R: \n$str ед."}
+            mSin -> {if(R > 360){                   // Синус угла
                 noCorrect(view)
             } else {
                 blackColor(view)
                 resText = Math.sin(R)
-                resText1 = resText - resText % 0.01
-                mText.text = "sin: $resText1 ед. ($resText)" } }
-            mCos -> {if(R > 360){                           // Косинус
+                str = String.format("%.3f", resText)
+                mText.text = "sin $R град.: $str" }}
+            mCos -> {if(R > 360){                   // Косинус угла
                 noCorrect(view)
             } else {
                 blackColor(view)
                 resText = Math.cos(R)
-                resText1 = resText - resText % 0.01
-                mText.text = "cos: $resText1 ед. ($resText)" } }
+                str = String.format("%.3f", resText)
+                mText.text = "cos $R град.: $str" }}
         }
     }
 
-    fun onReturn1(view: View){          // Возврат на главный экран
+    fun onReturn1(view: View){                      // Возврат на главный экран
         val mToast = Toast.makeText(this, "Возврат на главный экран выполнен", Toast.LENGTH_SHORT)
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
