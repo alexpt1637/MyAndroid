@@ -81,7 +81,7 @@ class ActivityNew1 : AppCompatActivity() {
         when(num2){
             2.0 -> mText.text = "Квадрат числа: $str"
             3.0 -> mText.text = "Куб числа: $str"
-            else -> mText.text = "Число в $num-ой степени: $str"
+            else -> mText.text = "Число $num1 в $num-ой степени: $str"
         }
     }
 
