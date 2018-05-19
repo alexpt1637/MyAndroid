@@ -8,3 +8,7 @@
 /build
 /captures
 .externalNativeBuild
+
+# Folders
+.idea/*
+out/*
