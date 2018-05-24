@@ -3,13 +3,13 @@ package ru.alexpt.android.testview
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
+import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.main.activity_new1.view.*
 
 class ActivityNew1 : AppCompatActivity() {
 
@@ -23,6 +23,7 @@ class ActivityNew1 : AppCompatActivity() {
     internal lateinit var mRl: Button
     internal lateinit var mSin: Button
     internal lateinit var mCos: Button
+    internal lateinit var mIm: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,7 @@ class ActivityNew1 : AppCompatActivity() {
         mRl = findViewById(R.id.rl)
         mSin = findViewById(R.id.sin)
         mCos = findViewById(R.id.cos)
+        mIm = findViewById(R.id.imageView)
 
         intent = Intent(this, ActivityNew2::class.java)
         mToastAdd = Toast.makeText(this, "Переход выполнен", Toast.LENGTH_SHORT)
@@ -45,6 +47,8 @@ class ActivityNew1 : AppCompatActivity() {
             startActivity(intent)
             mToastAdd.show()
         })
+
+//        Thread.setDefaultUncaughtExceptionHandler(TryMe())
     }
 
     // Реализация калькулятора
@@ -58,6 +62,7 @@ class ActivityNew1 : AppCompatActivity() {
 
         val resText = num1 + num2
         mText.text ="Сумма двух чисел: $resText"
+        mIm.setImageResource(R.drawable.smiley01)
     }
 
     fun onClickDiff(view: View){        // Разность двух чисел
@@ -67,6 +72,7 @@ class ActivityNew1 : AppCompatActivity() {
 
         val resText = num1 - num2
         mText.text ="Разность двух чисел: $resText"
+        mIm.setImageResource(R.drawable.smiley02)
     }
 
     fun exponentiation(view: View){        // Возведение в степень
@@ -83,6 +89,7 @@ class ActivityNew1 : AppCompatActivity() {
             3.0 -> mText.text = "Куб числа: $str"
             else -> mText.text = "Число $num1 в $num-ой степени: $str"
         }
+        mIm.setImageResource(R.drawable.smiley03)
     }
 
     fun onMultiply(view: View){         // Функция умножения
@@ -92,6 +99,7 @@ class ActivityNew1 : AppCompatActivity() {
 
         val resText = num1.toLong() * num2
         mText.text = "Произведение двух чисел: $resText"
+        mIm.setImageResource(R.drawable.smiley04)
     }
 
     fun noCorrect(view: View){          // Индикация ввода некорректного значения
@@ -119,6 +127,7 @@ class ActivityNew1 : AppCompatActivity() {
             val resText = num1.toDouble() / num2
             val str = String.format("%.2f", resText)
             mText.text = "Частное двух чисел: $str"
+            mIm.setImageResource(R.drawable.smiley05)
         }
     }
 
@@ -130,6 +139,7 @@ class ActivityNew1 : AppCompatActivity() {
         mText.setTextColor(Color.DKGRAY)
         mDel.setTextColor(Color.GRAY)
         mToast.show()
+        onClickIm(view)
     }
 
     fun onRoot(view: View){             // Корень квадратный числа
@@ -139,6 +149,7 @@ class ActivityNew1 : AppCompatActivity() {
         val resText = Math.sqrt(num1)
         val str = String.format("%.3f", resText)
         mText.text = "Корень квадратный числа: $str"
+        mIm.setImageResource(R.drawable.smiley06)
     }
 
     fun onArea(view: View){             // Площадь прямоугольника /квадрата/
@@ -152,6 +163,7 @@ class ActivityNew1 : AppCompatActivity() {
             num2 -> mText.text = "Площадь квадрата: $resText кв.ед."
             else -> mText.text = "Площадь прямоугольника: $resText кв.ед."
         }
+        mIm.setImageResource(R.drawable.smiley07)
     }
 
     fun perimeter(view: View){          // Периметр прямоугольника /квадрата/
@@ -165,6 +177,7 @@ class ActivityNew1 : AppCompatActivity() {
             num2 -> mText.text = "Периметр квадрата: $resText ед."
             else -> mText.text = "Периметр прямоугольника: $resText ед."
         }
+        mIm.setImageResource(R.drawable.smiley08)
     }
 
     fun hypotenuse(view: View){         // Длина гипотенузы
@@ -175,33 +188,42 @@ class ActivityNew1 : AppCompatActivity() {
         val resText = Math.hypot(num1, num2)
         val str = String.format("%.2f", resText)
         mText.text = "Длина гипотенузы: $str ед."
+        mIm.setImageResource(R.drawable.smiley09)
     }
 
-    fun onFourButtons(view: View){
+    fun onFourButtons(view: View){      // Обработка нажатия третьего ряда кнопок
         val R = (Integer.parseInt(mEl1.text.toString())).toDouble()
         val resText: Double
         val str: String
 
         when(view){
-            mRs -> {blackColor(view)                // Площадь круга
+            mRs -> {
+                blackColor(view)                // Площадь круга
+                mIm.setImageResource(ru.alexpt.android.testview.R.drawable.smiley00)
                 resText = Math.PI * Math.pow(R, 2.0)
                 str = String.format("%.2f", resText)
                 mText.text = "Площадь круга при R = $R: \n$str кв.ед."}
-            mRl -> {blackColor(view)                // Длина окружности
+            mRl -> {
+                blackColor(view)                // Длина окружности
+                mIm.setImageResource(ru.alexpt.android.testview.R.drawable.smiley10)
                 resText = 2 * Math.PI * R
                 str = String.format("%.2f", resText)
                 mText.text = "Длина окружности при R = $R: \n$str ед."}
             mSin -> {if(R > 360){                   // Синус угла
                 noCorrect(view)
+                imNo(view)
             } else {
                 blackColor(view)
+                mIm.setImageResource(ru.alexpt.android.testview.R.drawable.smiley11)
                 resText = Math.sin(R)
                 str = String.format("%.3f", resText)
                 mText.text = "sin $R град.: $str" }}
             mCos -> {if(R > 360){                   // Косинус угла
                 noCorrect(view)
+                imNo(view)
             } else {
                 blackColor(view)
+                mIm.setImageResource(ru.alexpt.android.testview.R.drawable.smiley12)
                 resText = Math.cos(R)
                 str = String.format("%.3f", resText)
                 mText.text = "cos $R град.: $str" }}
@@ -213,5 +235,13 @@ class ActivityNew1 : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         mToast.show()
+    }
+
+    fun onClickIm(view: View){                      // Меняем смайлик нажатием на него + очистка полей ввода
+        mIm.setImageResource(R.drawable.emocje01)
+    }
+
+    fun imNo(view: View){                           // Меняем смайлик в случае некорректных данных
+        mIm.setImageResource(R.drawable.emocje05)
     }
 }
