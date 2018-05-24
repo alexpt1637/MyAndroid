@@ -71,6 +71,12 @@ public class Main extends AppCompatActivity {
     }
 
     public void clickButton2(View view) {
+        input.setText(null);
+        input2.setText(null);
+        output.setText("Поле очищено");
+    }
+
+    /*public void clickButton3(View view) {
         Intent intent = new Intent(Main.this, SaveActivity.class);
         // поместим в Intent объект с именем: fname
         // Используется метод putExtra. Он добавляет к объекту пару. Первый параметр – это ключ(имя), второй - значение
@@ -82,5 +88,5 @@ public class Main extends AppCompatActivity {
 
         final Toast toastSave = Toast.makeText(Main.this, "Переход выполнен", Toast.LENGTH_SHORT);
         toastSave.show();
-    }
+    }*/
 }

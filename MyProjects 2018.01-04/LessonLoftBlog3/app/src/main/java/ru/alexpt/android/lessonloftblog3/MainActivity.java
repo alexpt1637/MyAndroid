@@ -1,5 +1,6 @@
 package ru.alexpt.android.lessonloftblog3;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 main_view.setBackgroundColor(getResources().getColor(R.color.redColor));
                 // меняем на цвет, который у нас есть в strings.xml
                 chosenButton.setText(getResources().getText(R.string.red));
+                chosenButton.setTextColor(Color.WHITE);
             }
         });
 
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 main_view.setBackgroundColor(getResources().getColor(R.color.yellowColor));
                 // меняем на цвет, который у нас есть в strings.xml
                 chosenButton.setText(getResources().getText(R.string.yellow));
+                chosenButton.setTextColor(Color.GRAY);
             }
         });
 
@@ -45,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 main_view.setBackgroundColor(getResources().getColor(R.color.greenColor));
                 // меняем на цвет, который у нас есть в strings.xml
                 chosenButton.setText(getResources().getText(R.string.green));
+                chosenButton.setTextColor(Color.DKGRAY);
             }
         });
     }

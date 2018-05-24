@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark">
 
     <TextView
         android:id="@+id/main_text"
@@ -9,27 +10,29 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/red" />
+        android:text="@string/red"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/red_button"
-        android:text="@string/red"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:text="@string/red" />
 
     <Button
         android:id="@+id/yellow_button"
-        android:text="@string/yellow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/red_button" />
+        android:layout_below="@id/red_button"
+        android:text="@string/yellow" />
 
     <Button
         android:id="@+id/green_button"
-        android:text="@string/green"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/yellow_button" />
+        android:layout_below="@id/yellow_button"
+        android:text="@string/green" />
 
 </RelativeLayout>
