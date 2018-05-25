@@ -140,14 +140,15 @@ class ActivityNew1 : AppCompatActivity() {
             val num1 = Integer.parseInt(mEl1.text.toString())
             val num2 = Integer.parseInt(mEl2.text.toString())
 
-            if(num2 == 0){
-                noCorrect(view)
-            } else {
-                blackColor(view)
-                val resText = num1.toDouble() / num2
-                val str = String.format("%.2f", resText)
-                mText.text = "Частное двух чисел: $str"
-                mIm.setImageResource(R.drawable.smiley05)
+            when(num2){                                             // Проверка деления на ноль
+                0 -> noCorrect(view)
+                else -> {
+                    blackColor(view)
+                    val resText = num1.toDouble() / num2
+                    val str = String.format("%.2f", resText)
+                    mText.text = "Частное двух чисел: $str"
+                    mIm.setImageResource(R.drawable.smiley05)
+                }
             }
         }
     }
