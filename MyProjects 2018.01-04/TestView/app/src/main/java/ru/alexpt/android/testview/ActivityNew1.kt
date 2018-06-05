@@ -250,7 +250,8 @@ class ActivityNew1 : AppCompatActivity() {
                     resText = 2 * Math.PI * R
                     str = String.format("%.2f", resText)
                     mText.text = "Длина окружности при R = $R: \n$str ед."}
-                mSin -> {if(R > 360){                       // Синус угла
+                mSin -> {
+                    if(R > 360){                       // Синус угла
                     noCorrect(view)
                     imNo(view)
                 } else {
@@ -259,7 +260,8 @@ class ActivityNew1 : AppCompatActivity() {
                     resText = Math.sin(R)
                     str = String.format("%.3f", resText)
                     mText.text = "sin $R град.: $str" }}
-                mCos -> {if(R > 360){                       // Косинус угла
+                mCos -> {
+                    if(R > 360){                       // Косинус угла
                     noCorrect(view)
                     imNo(view)
                 } else {

@@ -29,8 +29,10 @@ class MainActivity : AppCompatActivity() {
     internal lateinit var mToastAdd: Toast
     internal lateinit var mBtn1: Button
     internal lateinit var mBtn2: Button
+    internal lateinit var mBtn3: Button
     internal lateinit var mIntent1: Intent
     internal lateinit var mIntent2: Intent
+    internal lateinit var mIntent3: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +50,11 @@ class MainActivity : AppCompatActivity() {
         mButton4 = findViewById(R.id.button4)
         mBtn1 = findViewById(R.id.btn1)
         mBtn2 = findViewById(R.id.btn2)
+        mBtn3 = findViewById(R.id.btn3)
 
         mIntent1 = Intent(this, ActivityNew1::class.java)
         mIntent2 = Intent(this, ActivityNew2::class.java)
+        mIntent3 = Intent(this, ActivityNew3::class.java)
         mToast = Toast.makeText(this, "Hello Toast!", Toast.LENGTH_SHORT)
         mToastAdd = Toast.makeText(this, "Переход выполнен", Toast.LENGTH_SHORT)
 
@@ -64,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         when(view){
             mBtn1 -> startActivity(mIntent1)
             mBtn2 -> startActivity(mIntent2)
+            mBtn3 -> startActivity(mIntent3)
         }
         mToastAdd.show()
     }

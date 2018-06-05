@@ -18,6 +18,11 @@ class ActivityNew2 : AppCompatActivity() {
     var operand: Double? = null             // операнд операции
     var lastOperation = "="                 // последняя операция
 
+    internal lateinit var mAdd2: Button
+    internal lateinit var mToastAdd: Toast
+
+    var fText: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new2)
@@ -26,6 +31,16 @@ class ActivityNew2 : AppCompatActivity() {
         resultField = findViewById(R.id.resultField)
         numberField = findViewById(R.id.numberField)
         operationField = findViewById(R.id.operationField)
+        fText = findViewById(R.id.textView)
+        mAdd2 = findViewById(R.id.add2)
+
+        intent = Intent(this, ActivityNew3::class.java)
+        mToastAdd = Toast.makeText(this, "Переход ActivityNew3 выполнен", Toast.LENGTH_SHORT)
+
+        mAdd2.setOnClickListener({
+            startActivity(intent)
+            mToastAdd.show()
+        })
     }
 
     // сохранение состояния
@@ -41,15 +56,16 @@ class ActivityNew2 : AppCompatActivity() {
         super.onRestoreInstanceState(savedInstanceState)
         lastOperation = savedInstanceState.getString("OPERATION")
         operand = savedInstanceState.getDouble("OPERAND")
-        resultField!!.setText(operand.toString())
-        operationField!!.setText(lastOperation)
+        resultField!!.text = operand.toString()
+        fText!!.text = resultField.toString()
+        operationField!!.text = lastOperation
     }
 
     // обработка нажатия на числовую кнопку
     fun onNumberClick(view: View) {
 
         val button = view as Button
-        numberField!!.append(button.getText())
+        numberField!!.append(button.text)
 
         if (lastOperation.equals("=") && operand != null) {
             operand = null
@@ -61,7 +77,7 @@ class ActivityNew2 : AppCompatActivity() {
 
         val button = view as Button
         val op = button.text.toString()
-        var number = numberField!!.getText().toString()
+        var number = numberField!!.text.toString()
         // если введенно что-нибудь
         if (number.length > 0) {
             number = number.replace(',', '.')
@@ -72,7 +88,7 @@ class ActivityNew2 : AppCompatActivity() {
             }
         }
         lastOperation = op
-        operationField!!.setText(lastOperation)
+        operationField!!.text = lastOperation
     }
 
     private fun performOperation(number: Double?, operation: String) {
@@ -83,28 +99,30 @@ class ActivityNew2 : AppCompatActivity() {
         } else {
             if (lastOperation.equals("=")) {
                 lastOperation = operation
-            }
-            when (lastOperation) {
-                "=" -> operand = number
-                "/" -> if (number == null) {
-                    operand = 0.0
-                } else {
-                    operand!! / number
+            } else {
+                when (lastOperation) {
+                    "=" -> operand = number
+                    "/" -> if (number == null) {
+                        operand = 0.0
+                    } else {
+                        operand!! / number
+                    }
+                    "*" -> operand!! * number!!
+                    "+" -> operand!! + number!!
+                    "-" -> operand!! - number!!
                 }
-                "*" -> operand!! * number!!
-                "+" -> operand!! + number!!
-                "-" -> operand!! - number!!
             }
         }
-        resultField!!.setText(operand.toString().replace('.', ','))
+        resultField!!.text = operand.toString().replace('.', ',')
         numberField!!.setText("")
     }
 
-    fun del(view: View){
+    fun del(view: View){                // Очистка полей ввода и вывода
         val mToast = Toast.makeText(this, "Поле очищено!", Toast.LENGTH_SHORT)
         numberField!!.text = null
         operationField!!.text = null
         resultField!!.text = null
+        fText!!.text = null
         mToast.show()
     }
 
